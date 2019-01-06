@@ -1,0 +1,69 @@
+<svg id="view-exercise" display="none">
+  <use id="subviewGps" href="#subview-gps" />
+
+  <use id="subviewClock1" href="#subview-clock" />
+
+  <svg id="boxStats">
+    <svg class="item" display="none">
+      <text id="lblDistance" class="small-number row-1">00000</text>
+      <text id="lblDistanceUnits" class="small-label">distance kilometers</text>
+      <text id="lblRuns" class="small-number row-2">---</text>
+      <text class="small-label">runs</text>
+    </svg>
+
+    <svg class="item" display="none">
+      <text id="lblSpeed" class="small-number row-1">00000</text>
+      <text id="lblSpeedUnits" class="small-label">speed kph</text>
+      <text id="lblSpeedMax" class="small-number row-2">00000</text>
+      <text id="lblSpeedMaxUnits" class="small-label">speed max kph</text>
+    </svg>
+
+    <svg class="item" display="none">
+      <text id="lblActiveTime" class="big-number">99:99</text>
+      <text class="big-label">session</text>
+    </svg>
+
+    <svg class="item" display="none">
+      <use id="subviewAltitude" href="#subview-altitude" />
+    </svg>
+
+    <svg class="item" display="none">
+      <use id="subviewWeather" href="#subview-weather" />
+    </svg>
+
+    <svg class="item" display="none">
+      <use id="subviewHRM" href="#subview-hrm" />
+    </svg>
+
+    <svg class="item" display="none">
+      <text id="lblCalories" class="bigest-number">0</text>
+      <text class="bigest-label">calories</text>
+    </svg>
+
+    <rect id="touch" width="100%" height="100%" opacity="0" pointer-events="all" />
+  </svg>
+
+  <image id="unlocked" href="images/icons/unlocked.png" x="100%-42" y="50%-20" width="29" height="42" fill="#444444" />
+  <image id="locked" href="images/icons/locked.png" x="100%-42" y="50%-20" width="29" display="none" height="42" fill="#FF0000" />
+  <rect id="touchLock" x="100%-56" y="50%-28" width="56" height="56" opacity="0" pointer-events="all" />
+
+  <text id="lblStatus">connecting</text>
+
+  <use id="btnFinish" href="#combo-button-upper-right" display="none" fill="fb-green" shortcut="none">
+    <set href="combo-button-icon" attributeName="href"
+          to="images/icons/btn_combo_flag_p.png" />
+    <set href="combo-button-icon-press" attributeName="href"
+          to="images/icons/btn_combo_flag_p.png" />
+    <set href="combo-button-stroke" attributeName="display" to="inline" />
+  </use>
+
+  <use id="btnToggle" href="#combo-button-lower-right" display="none" fill="fb-yellow" shortcut="none">
+    <set href="combo-button-icon" attributeName="href"
+          to="images/icons/btn_combo_pause_press_p.png" />
+    <set href="combo-button-icon-press" attributeName="href"
+          to="images/icons/btn_combo_pause_press_p.png" />
+    <set href="combo-button-stroke" attributeName="display" to="inline" />
+  </use>
+
+  <use id="subviewPopup" href="#subview-popup" display="none" />
+</svg>

@@ -1,0 +1,15 @@
+<svg id="view-end" display="none">
+  <image href="images/bg.png" opacity=".7" />
+
+  <use id="subviewClock2" href="#subview-clock" />
+
+  <text id="lblEnd">Nice Work!</text>
+
+  <text id="lblActiveTime" class="end-label" />
+  <text id="lblHeartRateAvg" class="end-label" />
+  <text id="lblHeartRateMax" class="end-label" />
+  <text id="lblSpeedAvg" class="end-label" />
+  <text id="lblSpeedMax" class="end-label" />
+  <text id="lblDistance" class="end-label" />
+
+</svg>

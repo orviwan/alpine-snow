@@ -1,0 +1,128 @@
+text {
+  font-family: System-Regular;
+  font-size: 30;
+  font-weight: bold;
+  text-anchor: start;
+  fill: white;
+  text-length: 30;
+}
+
+/* View: Select */
+#lblStart {
+  font-size: 40;
+  x: 100%-8;
+  y: 40;
+  text-anchor: end;
+}
+
+/* View: Exercise */
+#boxStats {
+  x: 8;
+  y: 10%;
+  width: 100%-16;
+  height: 90%;
+}
+
+#lblStatus {
+  x: 8;
+  y: 100%-18;
+}
+
+.bigest-number {
+  font-size: 120;
+  font-family: System-Light;
+  fill: fb-yellow;
+  x: -1;
+  y: 15%+100;
+}
+
+.bigest-label {
+  font-size: 30;
+  fill: fb-yellow;
+  text-length: 66;
+  y: 15%+135;
+}
+
+.big-number {
+  font-size: 105;
+  font-family: System-Light;
+  fill: fb-yellow;
+  x: -1;
+  y: 15%+100;
+}
+
+.big-label {
+  font-size: 30;
+  fill: fb-yellow;
+  text-length: 66;
+  y: 15%+135;
+}
+
+.small-number {
+  font-size: 65;
+  font-family: System-Light;
+  fill: fb-yellow;
+  height: 60;
+}
+
+.small-label {
+  font-size: 25;
+  fill: fb-yellow;
+  text-length: 66;
+  x: 1;
+  y: $-35;
+}
+
+.row-1 {
+  y: 30%;
+}
+
+.row-2 {
+  y: 68%;
+}
+
+/* View: End */
+#lblEnd {
+  x: 8;
+  y: 65;
+  height: 26;
+  text-anchor: start;
+}
+
+.end-label {
+  font-size: 23;
+  x: 8;
+  y: $+5;
+  fill: #ffffff;
+}
+
+/* Subview: Clock */
+#lblClock {
+  x: 50%;
+  y: 32;
+  font-size: 28;
+  text-length: 8;
+  text-anchor: middle;
+}
+
+
+
+/* Subview: GPS */
+#icon-gps {
+  href: "images/icons/icn_status_gps.png";
+  x: 8;
+  y: 8;
+  width: 32;
+  height: 32;
+  fill: "fb-orange";
+}
+
+/* Subview: Weather */
+#icnCondition {
+  y: 30%;
+}
+
+.weatherDetails {
+  x: 100;
+  y: -35;
+}
