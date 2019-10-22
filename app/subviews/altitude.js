@@ -84,16 +84,29 @@ export default class Altitude extends View {
     this.label.text = Math.floor(val).toLocaleString();
   }
 
+  noBarometer = () => {
+    this.label.text = "---";
+    this.labelUnits.text = "No Barometer";
+  }
+
   startBarometer = () => {
-    this.barometer = new Barometer();
-    this.barometer.addEventListener("reading", this.processBarometer);
-    this.barometer.start();
+    if (Barometer) {
+      this.barometer = new Barometer();
+      this.barometer.addEventListener("reading", this.processBarometer);
+      this.barometer.start();
+    } else {
+      this.noBarometer();
+    }
   }
 
   startBatchBarometer = () => {
-    this.barometer = new Barometer({ frequency: 1, batch: 30 });
-    this.barometer.addEventListener("reading", this.processBarometer);
-    this.barometer.start();
+    if (Barometer) {
+      this.barometer = new Barometer({ frequency: 1, batch: 30 });
+      this.barometer.addEventListener("reading", this.processBarometer);
+      this.barometer.start();
+    } else {
+      this.noBarometer();
+    }
   }
 
   onMount() {

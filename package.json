@@ -1,11 +1,11 @@
 {
   "name": "alpine-snow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@fitbit/sdk": "~3.1.0",
-    "@fitbit/sdk-cli": "^1.6.3"
+    "@fitbit/sdk": "~4.0.0",
+    "@fitbit/sdk-cli": "^1.7.0"
   },
   "fitbit": {
     "appType": "app",
@@ -22,7 +22,9 @@
     ],
     "buildTargets": [
       "higgs",
-      "meson"
+      "meson",
+      "gemini",
+      "mira"
     ],
     "i18n": {},
     "appUUID": "edcb4eb7-0f48-48bf-99b0-ffbc3ae5f850"

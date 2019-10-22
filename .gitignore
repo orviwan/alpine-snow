@@ -1,5 +1,8 @@
+.
+.DS_Store
 build
 node_modules
 companion/index.real.js
 resources/images/weather
+package-lock.json
 yarn.lock
