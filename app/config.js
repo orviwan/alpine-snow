@@ -1,4 +1,5 @@
-export const exerciseName = "cycling"; //"Alpine Snow";
+export const exerciseName = "Alpine Snow";
+export const exerciseType = "cycling";
 
 export const exerciseOptions = {
   gps: true
