@@ -134,7 +134,7 @@ export class ViewExercise extends View {
       return;
     }
     utils.show(this.btnToggle);
-    exercise.start(config.exerciseName, config.exerciseOptions);
+    exercise.start(config.exerciseType, config.exerciseOptions);
     this.cycle.next();
   };
 
