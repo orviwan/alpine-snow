@@ -12,7 +12,6 @@ import {
   settingsStorage
 } from "settings";
 
-let OWM_API_KEY = JSON.parse(settingsStorage.getItem('owm_apikey')).name;
 const MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 companion.wakeInterval = 1 * MILLISECONDS_PER_HOUR;
 companion.addEventListener("wakeinterval", refreshWeather);
@@ -21,10 +20,8 @@ companion.monitorSignificantLocationChanges = true;
 companion.addEventListener("significantlocationchange", refreshWeather);
 
 settingsStorage.addEventListener("change", (evt) => {
-  if (evt.key === 'owm_apikey') {
-    OWM_API_KEY = JSON.parse(evt.newValue).name;
+  if (evt.key === 'owm_apikey')
     refreshWeather();
-  }
 });
 
 returnWeatherData({});
@@ -45,9 +42,10 @@ function fetchWeather(lat, long) {
     },
     redirect: 'follow',
   };
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${OWM_API_KEY}&units=metric`;
+  const api_key = JSON.parse(settingsStorage.getItem('owm_apikey')).name;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api_key}&units=metric`;
 
-  if (weatherRefreshing)
+  if (weatherRefreshing || !api_key)
     return;
 
   weatherRefreshing = true;
