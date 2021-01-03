@@ -25,6 +25,7 @@ function refreshWeather() {
   });
 }
 
+let weatherRefreshing = false;
 function fetchWeather(lat, long) {
   const options = {
     method: 'GET',
@@ -34,8 +35,14 @@ function fetchWeather(lat, long) {
     redirect: 'follow',
   };
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${OWM_API_KEY}&units=metric`;
+
+  if (weatherRefreshing)
+    return;
+
+  weatherRefreshing = true;
   fetch(url, options)
     .then(response => {
+      weatherRefreshing = false;
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
@@ -45,6 +52,7 @@ function fetchWeather(lat, long) {
       returnWeatherData(json);
     })
     .catch(error => {
+      weatherRefreshing = false;
       console.error(`Fetch failed: ${error}`);
     })
 }
