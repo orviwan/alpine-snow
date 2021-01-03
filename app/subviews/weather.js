@@ -29,9 +29,9 @@ export default class Weather extends View {
       data = fs.readFileSync("/private/data/weather.cbor", "cbor");
     } catch (e) {}
 
-    if (data && data.LOCS.length > 0) {
-      this.labelTemperature.text = convertTemperature(data.LOCS[0].CUR.T);
-      this.iconConditions.href = `images/weather/weather_${zeroPad(data.LOCS[0].CUR.WC)}.png`;
+    if (data && data.weather && data.weather.length > 0) {
+      this.labelTemperature.text = convertTemperature(data.main.temp);
+      this.iconConditions.href = `images/weather/weather_${zeroPad(data.weather[0].icon)}.png`;
     } else {
       this.labelTemperature.text = "--°";
       this.iconConditions.href = "";

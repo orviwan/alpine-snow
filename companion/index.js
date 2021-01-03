@@ -9,6 +9,7 @@ import {
   geolocation
 } from "geolocation";
 
+const OWM_API_KEY = '';
 const MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 companion.wakeInterval = 1 * MILLISECONDS_PER_HOUR;
 companion.addEventListener("wakeinterval", refreshWeather);
@@ -25,8 +26,14 @@ function refreshWeather() {
 }
 
 function fetchWeather(lat, long) {
-  // TODO
-  return;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+  };
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${OWM_API_KEY}&units=metric`;
   fetch(url, options)
     .then(response => {
       if (!response.ok) {
@@ -35,7 +42,7 @@ function fetchWeather(lat, long) {
       return response.json();
     })
     .then(json => {
-      returnWeatherData(json.data);
+      returnWeatherData(json);
     })
     .catch(error => {
       console.error(`Fetch failed: ${error}`);
