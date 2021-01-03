@@ -22,10 +22,8 @@
       "access_user_profile"
     ],
     "buildTargets": [
-      "higgs",
-      "meson",
-      "gemini",
-      "mira"
+      "atlas",
+      "vulcan"
     ],
     "i18n": {},
     "appUUID": "edcb4eb7-0f48-48bf-99b0-ffbc3ae5f850"
