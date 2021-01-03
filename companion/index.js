@@ -27,6 +27,7 @@ settingsStorage.addEventListener("change", (evt) => {
   }
 });
 
+returnWeatherData({});
 refreshWeather();
 
 function refreshWeather() {
