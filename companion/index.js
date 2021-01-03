@@ -8,14 +8,24 @@ import {
 import {
   geolocation
 } from "geolocation";
+import {
+  settingsStorage
+} from "settings";
 
-const OWM_API_KEY = '';
+let OWM_API_KEY = JSON.parse(settingsStorage.getItem('owm_apikey')).name;
 const MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 companion.wakeInterval = 1 * MILLISECONDS_PER_HOUR;
 companion.addEventListener("wakeinterval", refreshWeather);
 
 companion.monitorSignificantLocationChanges = true;
 companion.addEventListener("significantlocationchange", refreshWeather);
+
+settingsStorage.addEventListener("change", (evt) => {
+  if (evt.key === 'owm_apikey') {
+    OWM_API_KEY = JSON.parse(evt.newValue).name;
+    refreshWeather();
+  }
+});
 
 refreshWeather();
 
