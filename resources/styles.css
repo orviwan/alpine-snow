@@ -18,9 +18,8 @@ textarea {
 
 /* View: Select */
 #lblStart {
-  x: 100%-40;
+  x: 50%;
   y: 40;
-  text-anchor: end;
 }
 
 /* View: Exercise */

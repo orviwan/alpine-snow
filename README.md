@@ -33,10 +33,10 @@ Thanks.
 ### Known Issues
 
 - Number of "Runs" aren't persisted anywhere.
-- Exercise appears as "run" in Fitbit activity log.
+- Exercise appears as "bike" in Fitbit activity log.
 - Speed indicator might be incorrect. "The max speed I reached was according the
   app, 6,9 km/h. For sure that must be at least 60-70 km/h.".
 
 ### Screenshot
 
-![screenshot](screenshot.png)
+![screenshot](screenshots/01.png)
