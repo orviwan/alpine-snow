@@ -1,7 +1,7 @@
 <svg id="view-select" display="none">
   <image href="images/bg.png" y="-80" />
 
-  <text id="lblStart" class="h3">Exercise Name</text>
+  <text id="lblStart" class="h3 center-text">Exercise Name</text>
 
   <use id="btnStart" href="#text-button" class="text-button bottom application-fill" />
 </svg>

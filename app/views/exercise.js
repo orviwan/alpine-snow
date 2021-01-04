@@ -177,7 +177,7 @@ export class ViewExercise extends View {
     utils.hide(this.btnFinish);
     utils.hide(this.btnToggle);
     this.setButtonIcon(this.btnToggle, config.icons.pause);
-    this.lblStatus.text = "connecting";
+    this.lblStatus.text = "GPS connecting";
 
     this.altitude = new Altitude("#subviewAltitude", this.altitudeDirectionChange);
     this.insert(this.altitude);
@@ -248,3 +248,4 @@ export class ViewExercise extends View {
 
     this.touchLock.removeEventListener("click", this.handleToggleLock);
   }
+}

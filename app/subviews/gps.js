@@ -19,6 +19,7 @@ export default class GPS extends View {
 
     const $ = $at(parent);
     this.iconGps = $("#icon-gps");
+    this.lblStatus = $("#lblStatus");
     this.callback = callback;
     super();
   }
@@ -52,6 +53,7 @@ export default class GPS extends View {
 
   gpsBad() {
     if (this.iconGps) this.iconGps.style.fill = "fb-red";
+    if (this.lblStatus) this.lblStatus.text = "GPS error";
   }
 
   handleSuccess = (position) => {
@@ -60,7 +62,7 @@ export default class GPS extends View {
   }
 
   handleError = (error) => {
-    // console.error(JSON.stringify(error));
+    console.error(JSON.stringify(error));
     this.gpsBad();
   }
 }
