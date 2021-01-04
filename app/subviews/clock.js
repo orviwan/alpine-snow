@@ -27,6 +27,7 @@ export default class Clock extends View {
 
   onMount() {
     clock.addEventListener("tick", this.handleTick);
+    this.handleTick({ date: new Date() });
   }
 
   handleTick = (evt) => {
