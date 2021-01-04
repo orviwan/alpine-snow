@@ -33,7 +33,9 @@ export class ViewSelect extends View {
     this.lblStart.text = config.exerciseName;
   }
 
-  onRender() { }
+  onRender() {
+    this.btnStart.text = "START";
+  }
 
   onUnmount() {
     this.btnStart.removeEventListener("click", this.handleStart);

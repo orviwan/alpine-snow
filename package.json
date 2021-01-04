@@ -4,8 +4,8 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@fitbit/sdk": "~4.0.0",
-    "@fitbit/sdk-cli": "^1.7.0"
+    "@fitbit/sdk": "~5.0.0",
+    "@fitbit/sdk-cli": "^1.7.3"
   },
   "fitbit": {
     "appType": "app",
@@ -22,10 +22,8 @@
       "access_user_profile"
     ],
     "buildTargets": [
-      "higgs",
-      "meson",
-      "gemini",
-      "mira"
+      "atlas",
+      "vulcan"
     ],
     "i18n": {},
     "appUUID": "edcb4eb7-0f48-48bf-99b0-ffbc3ae5f850"

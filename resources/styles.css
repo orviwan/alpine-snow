@@ -1,3 +1,8 @@
+.application-fill { fill: fb-yellow; }
+.app-gradient-background { fill: fb-yellow; }
+.foreground-fill { fill: fb-white; }
+.background-fill { fill: fb-black; }
+
 text {
   font-family: System-Regular;
   font-size: 30;
@@ -7,10 +12,13 @@ text {
   text-length: 30;
 }
 
+textarea {
+  text-length: 100;
+}
+
 /* View: Select */
 #lblStart {
-  font-size: 40;
-  x: 100%-8;
+  x: 100%-40;
   y: 40;
   text-anchor: end;
 }
@@ -24,7 +32,7 @@ text {
 }
 
 #lblStatus {
-  x: 8;
+  x: 50%;
   y: 100%-18;
 }
 
@@ -81,17 +89,35 @@ text {
   y: 68%;
 }
 
+.bottom-right-button {
+  x: 100%-100;
+  y: 100%-100;
+}
+
+.top-right-button {
+  x: 100%-100;
+  y: 25;
+}
+
+#btnToggle #image {
+  href: "images/icons/btn_combo_pause_press_p.png";
+}
+
+#btnFinish #image {
+  href: "images/icons/btn_combo_flag_p.png";
+}
+
 /* View: End */
 #lblEnd {
-  x: 8;
-  y: 65;
+  x: 25;
+  y: 80;
   height: 26;
   text-anchor: start;
 }
 
 .end-label {
   font-size: 23;
-  x: 8;
+  x: 25;
   y: $+5;
   fill: #ffffff;
 }
@@ -110,8 +136,8 @@ text {
 /* Subview: GPS */
 #icon-gps {
   href: "images/icons/icn_status_gps.png";
-  x: 8;
-  y: 8;
+  x: 25;
+  y: 25;
   width: 32;
   height: 32;
   fill: "fb-orange";

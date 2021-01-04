@@ -80,7 +80,7 @@ export class ViewExercise extends View {
   handlePause = () => {
     exercise.pause();
     this.lblStatus.text = "paused";
-    this.setComboIcon(this.btnToggle, config.icons.play);
+    this.setButtonIcon(this.btnToggle, config.icons.play);
     utils.show(this.btnFinish);
     vibration.start("bump");
   };
@@ -93,14 +93,13 @@ export class ViewExercise extends View {
   handleResume = () => {
     exercise.resume();
     this.lblStatus.text = "";
-    this.setComboIcon(this.btnToggle, config.icons.pause);
+    this.setButtonIcon(this.btnToggle, config.icons.pause);
     utils.hide(this.btnFinish);
     vibration.start("bump");
   };
 
-  setComboIcon(combo, icon) {
-    combo.getElementById("combo-button-icon").href = icon;
-    combo.getElementById("combo-button-icon-press").href = icon;
+  setButtonIcon(button, icon) {
+    button.image = icon;
   }
 
   handleFinish = () => {
@@ -177,7 +176,7 @@ export class ViewExercise extends View {
   onMount() {
     utils.hide(this.btnFinish);
     utils.hide(this.btnToggle);
-    this.setComboIcon(this.btnToggle, config.icons.pause);
+    this.setButtonIcon(this.btnToggle, config.icons.pause);
     this.lblStatus.text = "connecting";
 
     this.altitude = new Altitude("#subviewAltitude", this.altitudeDirectionChange);
@@ -202,6 +201,18 @@ export class ViewExercise extends View {
     document.addEventListener("keypress", this.handleButton);
 
     this.touchLock.addEventListener("click", this.handleToggleLock);
+
+    document.onbeforeunload = (evt) => {
+      evt.preventDefault();
+      if (this.buttonsLocked) return;
+
+      this.el.x = 0;
+      if (exercise.state === "stopped") {
+        this.handleCancel();
+      } else {
+        this.handleFinish();
+      }
+    }
   }
 
   onRender() {
@@ -233,7 +244,7 @@ export class ViewExercise extends View {
     this.btnToggle.removeEventListener("click", this.handleToggle);
     this.btnFinish.removeEventListener("click", this.handleFinish);
     document.removeEventListener("keypress", this.handleButton);
+    document.onbeforeunload = undefined;
 
     this.touchLock.removeEventListener("click", this.handleToggleLock);
   }
-}

@@ -1,7 +1,9 @@
+import document from "document";
 import exercise from "exercise";
 
 import * as utils from "../lib/utils";
 import {
+  Application,
   View,
   $at
 } from "../lib/view";
@@ -42,9 +44,17 @@ export class ViewEnd extends View {
       const distance = utils.formatDistance(exercise.stats.distance || 0);
       this.lblDistance.text = `distance: ${distance.value} ${distance.units}`;
     }
+
+    document.onbeforeunload = (evt) => {
+      evt.preventDefault();
+      this.el.x = 0;
+      Application.switchTo("ViewSelect");
+    }
   }
 
   onRender() {}
 
-  onUnmount() {}
+  onUnmount() {
+    document.onbeforeunload = undefined;
+  }
 }
