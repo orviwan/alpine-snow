@@ -201,6 +201,18 @@ export class ViewExercise extends View {
     document.addEventListener("keypress", this.handleButton);
 
     this.touchLock.addEventListener("click", this.handleToggleLock);
+
+    document.onbeforeunload = (evt) => {
+      evt.preventDefault();
+      if (this.buttonsLocked) return;
+
+      this.el.x = 0;
+      if (exercise.state === "stopped") {
+        this.handleCancel();
+      } else {
+        this.handleFinish();
+      }
+    }
   }
 
   onRender() {
@@ -232,7 +244,7 @@ export class ViewExercise extends View {
     this.btnToggle.removeEventListener("click", this.handleToggle);
     this.btnFinish.removeEventListener("click", this.handleFinish);
     document.removeEventListener("keypress", this.handleButton);
+    document.onbeforeunload = undefined;
 
     this.touchLock.removeEventListener("click", this.handleToggleLock);
   }
-}
