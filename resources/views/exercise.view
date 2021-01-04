@@ -47,23 +47,10 @@
   <image id="locked" href="images/icons/locked.png" x="100%-42" y="50%-20" width="29" display="none" height="42" fill="#FF0000" />
   <rect id="touchLock" x="100%-56" y="50%-28" width="56" height="56" opacity="0" pointer-events="all" />
 
-  <text id="lblStatus">connecting</text>
+  <text id="lblStatus" class="center-text">connecting</text>
 
-  <use id="btnFinish" href="#combo-button-upper-right" display="none" fill="fb-green" shortcut="none">
-    <set href="combo-button-icon" attributeName="href"
-          to="images/icons/btn_combo_flag_p.png" />
-    <set href="combo-button-icon-press" attributeName="href"
-          to="images/icons/btn_combo_flag_p.png" />
-    <set href="combo-button-stroke" attributeName="display" to="inline" />
-  </use>
-
-  <use id="btnToggle" href="#combo-button-lower-right" display="none" fill="fb-yellow" shortcut="none">
-    <set href="combo-button-icon" attributeName="href"
-          to="images/icons/btn_combo_pause_press_p.png" />
-    <set href="combo-button-icon-press" attributeName="href"
-          to="images/icons/btn_combo_pause_press_p.png" />
-    <set href="combo-button-stroke" attributeName="display" to="inline" />
-  </use>
+  <use id="btnFinish" href="#icon-button" display="none" fill="fb-green" class="medium-button application-fill top-right-button" />
+  <use id="btnToggle" href="#icon-button" display="none" class="medium-button application-fill bottom-right-button" />
 
   <use id="subviewPopup" href="#subview-popup" display="none" />
 </svg>

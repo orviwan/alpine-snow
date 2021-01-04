@@ -80,7 +80,7 @@ export class ViewExercise extends View {
   handlePause = () => {
     exercise.pause();
     this.lblStatus.text = "paused";
-    this.setComboIcon(this.btnToggle, config.icons.play);
+    this.setButtonIcon(this.btnToggle, config.icons.play);
     utils.show(this.btnFinish);
     vibration.start("bump");
   };
@@ -93,14 +93,13 @@ export class ViewExercise extends View {
   handleResume = () => {
     exercise.resume();
     this.lblStatus.text = "";
-    this.setComboIcon(this.btnToggle, config.icons.pause);
+    this.setButtonIcon(this.btnToggle, config.icons.pause);
     utils.hide(this.btnFinish);
     vibration.start("bump");
   };
 
-  setComboIcon(combo, icon) {
-    combo.getElementById("combo-button-icon").href = icon;
-    combo.getElementById("combo-button-icon-press").href = icon;
+  setButtonIcon(button, icon) {
+    button.image = icon;
   }
 
   handleFinish = () => {
@@ -177,7 +176,7 @@ export class ViewExercise extends View {
   onMount() {
     utils.hide(this.btnFinish);
     utils.hide(this.btnToggle);
-    this.setComboIcon(this.btnToggle, config.icons.pause);
+    this.setButtonIcon(this.btnToggle, config.icons.pause);
     this.lblStatus.text = "connecting";
 
     this.altitude = new Altitude("#subviewAltitude", this.altitudeDirectionChange);

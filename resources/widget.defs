@@ -1,0 +1,52 @@
+<svg>
+  <defs>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="import" href="/mnt/sysassets/system_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/baseview_widget.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/icon_button.defs" />
+    <link rel="import" href="/mnt/sysassets/widgets/text_button.defs" />
+
+    <symbol id="subview-popup">
+      <use href="#app-gradient-background" class="app-gradient-background application-fill" apply-style="at-use">
+        <svg>
+          <!-- Title and text -->
+          <text id="header" x="50%" y="40" class="center-text" />
+          <textarea id="copy" x="25" class="stack-gap p2" />
+
+          <!-- Left button -->
+          <use id="btnLeft" href="#text-button" class="text-button bottom left secondary application-fill" />
+
+          <!-- Right button -->
+          <use id="btnRight" href="#text-button" class="text-button bottom right application-fill" />
+        </svg>
+      </use>
+    </symbol>
+
+    <symbol id="subview-clock">
+      <text id="lblClock" />
+    </symbol>
+
+    <symbol id="subview-gps">
+      <image id="icon-gps" />
+    </symbol>
+
+    <symbol id="subview-hrm">
+      <text id="lblHrm" class="bigest-number">---</text>
+      <text class="bigest-label">heart rate</text>
+    </symbol>
+
+    <symbol id="subview-altitude">
+      <text id="lblAltitude" class="bigest-number">-----</text>
+      <text id="lblAltitudeUnits" class="bigest-label">altitude meters</text>
+    </symbol>
+
+    <symbol id="subview-weather">
+      <image id="icnCondition" href="" width="80" height="80" />
+      <svg class="weatherDetails">
+        <text id="lblTemperature" class="small-number">-999°</text>
+        <text id="lblWeatherUnits" class="small-label">fahrenheit</text>
+      </svg>
+    </symbol>
+
+  </defs>
+</svg>
