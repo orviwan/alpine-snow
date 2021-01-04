@@ -33,10 +33,9 @@ Thanks.
 ### Known Issues
 
 - Number of "Runs" aren't persisted anywhere.
-- Final summary stats aren't displaying speed data.
+- Exercise appears as "run" in Fitbit activity log.
 - Speed indicator might be incorrect. "The max speed I reached was according the
   app, 6,9 km/h. For sure that must be at least 60-70 km/h.".
-- GPS track is not shown in Fitbit activity log.
 
 ### Screenshot
 

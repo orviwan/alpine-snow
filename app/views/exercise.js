@@ -248,3 +248,4 @@ export class ViewExercise extends View {
 
     this.touchLock.removeEventListener("click", this.handleToggleLock);
   }
+}
