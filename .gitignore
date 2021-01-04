@@ -3,6 +3,7 @@
 build
 node_modules
 companion/index.real.js
+companion/index.dummy.js
 resources/images/weather
 package-lock.json
 yarn.lock
