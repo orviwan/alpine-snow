@@ -25,12 +25,8 @@ function refreshWeather() {
 }
 
 function fetchWeather(lat, long) {
-  let url = `https://api.fitbit.com/1/weather/search.json?location=${lat},${long}`;
-  const options = {
-    headers: {
-      Authorization: `Bearer ${companion.accessTokens["fitbit"]}`
-    }
-  }
+  // TODO
+  return;
   fetch(url, options)
     .then(response => {
       if (!response.ok) {
