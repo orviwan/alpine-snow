@@ -119,7 +119,7 @@ export function convertMetersToMilesOrKilometers(meters, unitK, unitM) {
  */
 export function convertTemperature(temperature) {
   if (units.distance === "metric") {
-    return `${temperature.toFixed(0)}°`;
+    return `${temperature.toFixed(1)}°`;
   } else {
     return `${(temperature * 9 / 5 + 32).toFixed(0)}°`;
   }

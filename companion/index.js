@@ -8,6 +8,9 @@ import {
 import {
   geolocation
 } from "geolocation";
+import {
+  settingsStorage
+} from "settings";
 
 const MILLISECONDS_PER_HOUR = 1000 * 60 * 60;
 companion.wakeInterval = 1 * MILLISECONDS_PER_HOUR;
@@ -16,6 +19,12 @@ companion.addEventListener("wakeinterval", refreshWeather);
 companion.monitorSignificantLocationChanges = true;
 companion.addEventListener("significantlocationchange", refreshWeather);
 
+settingsStorage.addEventListener("change", (evt) => {
+  if (evt.key === 'owm_apikey')
+    refreshWeather();
+});
+
+returnWeatherData({});
 refreshWeather();
 
 function refreshWeather() {
@@ -24,20 +33,35 @@ function refreshWeather() {
   });
 }
 
+let weatherRefreshing = false;
 function fetchWeather(lat, long) {
-  // TODO
-  return;
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    redirect: 'follow',
+  };
+  const api_key = JSON.parse(settingsStorage.getItem('owm_apikey')).name;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${api_key}&units=metric`;
+
+  if (weatherRefreshing || !api_key)
+    return;
+
+  weatherRefreshing = true;
   fetch(url, options)
     .then(response => {
+      weatherRefreshing = false;
       if (!response.ok) {
         throw new Error(`Request failed with status: ${response.status}`);
       }
       return response.json();
     })
     .then(json => {
-      returnWeatherData(json.data);
+      returnWeatherData(json);
     })
     .catch(error => {
+      weatherRefreshing = false;
       console.error(`Fetch failed: ${error}`);
     })
 }
